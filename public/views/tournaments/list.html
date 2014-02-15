@@ -1,0 +1,39 @@
+<section data-ng-controller="TournamentsController" data-ng-init="find()">
+	<!-- <ul class="tournaments unstyled">
+		<li data-ng-repeat="tournament in tournaments">
+			<span>{{tournament.created | date:'medium'}}</span> /
+			<span>{{tournament.user.name}}</span>
+			<h2><a data-ng-href="#!/tournaments/{{tournament._id}}">{{tournament.title}}</a></h2>
+			<div>{{tournament.content}}</div>
+		</li>
+	</ul>
+	<h1 data-ng-hide="!tournaments || tournaments.length">No tournaments yet. <br> Why don't you <a href="/#!/tournaments/create">Create One</a>?</h1> -->
+
+	<table id="tournamentList" class="table table-hover">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Participants</th>
+				<th>Weeks</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="tournament in tournaments">
+				<td>
+					<a href="#!/tournaments/{{tournament._id}}">
+						{{tournament.title}}
+					</a>
+				</td>
+				<td>{{tournament.members.length}}</td>
+				<td>{{tournament.weeks}}</td>
+			</tr>
+		</tbody>
+	</table>
+
+
+	<br />
+
+	<a href="#!/tournaments/create" class="btn btn-primary">
+		<span>Create New</span>
+	</a>
+</section>

@@ -1,0 +1,92 @@
+<table>
+	<tr>
+		<td>max score</td>
+		<td> <input type="text" ng-model="tournament.maxScore"> </td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+	</tr>
+</table>
+
+<button ng-click="createTournament()">Create New</button>
+
+<h3>Rules</h3>
+<table class="pure-table pure-table-horizontal">
+	<tr ng-repeat="rule in tournament.rules">
+		<td>Best <input type="text" ng-model="rule.best"></td>
+		<td>of last <input type="text" ng-model="rule.of"> scores</td>
+		<td>percentage: <input type="text" ng-model="rule.percent"></td>
+		<td><a href="" ng-click="removeRule(rule)">X</a></td>
+	</tr>
+</table>
+<button ng-click="addRule()">Add Rule</button>
+
+<table id="main-table">
+	<tr>
+		<th></th>
+		<th ng-repeat="n in [] | range:tournament.weeks">Week {{n+1}}</th>
+	</tr>
+
+	<tr>
+		<th>Name</th>
+		<td ng-repeat="n in [] | range:tournament.weeks">
+			<table id="small-headings">
+				<td>
+					<p>Score</p>
+				</td>
+				<td>
+					<p>H Cap</p>
+				</td>
+				<td>
+					<p>Total</p>
+				</td>
+				<td>
+					<p>X</p>
+				</td>
+				<td>
+					<p>Rank</p>
+				</td>
+			</table>
+		</td>
+	</tr>
+
+	<tr ng-repeat="member in tournament.members">
+		<td>
+			{{member.name}}
+		</td>
+
+		<td ng-repeat="week in member.weeks">
+			<table>
+				<td class="cell-small">
+					<input type="text" ng-model="week.score">
+				</td>
+				<td class="cell-small">
+					<input type="text" value="{{week.handicap}}" readonly="readonly">
+				</td>
+				<td class="cell-small">
+					<input type="text" value="{{week.total}}" readonly="readonly">
+				</td>
+				<td class="cell-small">
+					<input type="text" ng-model="week.bullseyes">
+				</td>
+				<td class="cell-small">
+					<input type="text" value="{{week.rank}}" readonly="readonly">
+				</td>
+			</table>
+		</td>
+	</tr>
+</table>
+
+<input type="text" ng-model="newMemberName" />
+<button ng-click="addParticipant(newMemberName)">Add Participant</button>
+
+<button ng-click="saveCurrent()">Save</button>

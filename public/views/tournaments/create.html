@@ -1,0 +1,57 @@
+<section data-ng-controller="TournamentsController" data-ng-init="emptyFields()">
+	<form class="form-horizontal" data-ng-submit="create()">
+		<div class="control-group">
+			<label class="control-label" for="title">Title</label>
+			<div class="controls">
+				<input type="text" data-ng-model="title" id="title" placeholder="Title" required autofocus>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="weeks">Number of Weeks</label>
+			<div class="controls">
+				<input type="text" data-ng-model="weeks" id="weeks" placeholder="Weeks">
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="maxScore">Max Score</label>
+			<div class="controls">
+				<input type="text" data-ng-model="maxScore" id="maxScore" placeholder="Score">
+			</div>
+		</div>
+		<!-- <form> -->
+			<div class="control-group">
+				<label class="control-label" for="newMember">Members</label>
+				<div class="controls">
+					<ul>
+						<li data-ng-repeat="member in members">{{member.name}}</li>
+					</ul>
+					<input type="text" data-ng-model="newMember" id="newMember" placeholder="Name" ng-enter="addMember($event)">
+					<input type="button" data-ng-click="addMember()" value="Add" class="btn btn-default">
+				</div>
+			</div>
+		<!-- </form> -->
+		<div class="control-group">
+			<label class="control-label" for="newRuleName">Rules</label>
+			<div class="controls">
+				<ul>
+					<li data-ng-repeat="rule in rules">
+						<span>Best {{rule.best}} of last {{rule.of}} scores, at {{rule.percent}}%.</span>
+						<a href="" data-ng-click="removeRule(rule)">X</a>
+					</li>
+				</ul>
+
+				<span>
+					Best <input type="text" data-ng-model="newRule.best" class="shortInput" id="best">
+					of last <input type="text" data-ng-model="newRule.of" class="shortInput"> scores,
+					at <input type="text" data-ng-model="newRule.percent" class="shortInput" ng-enter="addRule()">%
+				</span>
+				<input type="button" data-ng-click="addRule()" value="Add" class="btn btn-default">
+			</div>
+		</div>
+		<div class="control-group">
+			<div class="controls">
+				<input type="submit" class="btn btn-primary" value="Submit">
+			</div>
+		</div>
+	</form>
+</section>

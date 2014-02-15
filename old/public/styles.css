@@ -1,0 +1,21 @@
+body {
+	padding: 15px;
+}
+th, td, input {
+	width: 80px;
+}
+.cell-small {
+	width: 30px;
+}
+.cell-small input {
+	width: 30px;
+}
+#main-table {
+	
+}
+#small-headings {
+	
+}
+#small-headings td {
+	font-size: 10px;
+}

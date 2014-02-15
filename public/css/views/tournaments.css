@@ -1,0 +1,29 @@
+/*th, td, input {
+	width: 80px;
+}*/
+.cell-small {
+	width: 30px;
+}
+.cell-small input {
+	width: 30px;
+}
+#main-table {
+	
+}
+#main-table > tbody > tr > td {
+	
+}
+#small-headings {
+	
+}
+#small-headings td {
+	font-size: 10px;
+}
+
+#tournamentList {
+	margin-top: 20px;
+}
+
+.shortInput {
+	width: 20px;
+}
